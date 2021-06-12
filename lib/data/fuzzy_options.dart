@@ -4,9 +4,9 @@ import 'result.dart';
 class WeightedKey<T> {
   /// Instantiates it
   WeightedKey({
-    required this.name,
-    required this.getter,
-    required this.weight,
+    this.name,
+    this.getter,
+    this.weight,
   }) : assert(weight > 0, 'Weight should be positive and non-zero');
 
   /// Name of this getter
@@ -37,13 +37,13 @@ class FuzzyOptions<T> {
     this.threshold = 0.6,
     this.maxPatternLength = 32,
     this.isCaseSensitive = false,
-    Pattern? tokenSeparator,
+    Pattern tokenSeparator,
     this.findAllMatches = false,
     this.minTokenCharLength = 1,
     this.minMatchCharLength = 1,
     List<WeightedKey<T>> keys = const [],
     this.shouldSort = true,
-    SorterFn<T>? sortFn,
+    SorterFn<T> sortFn,
     this.tokenize = false,
     this.matchAllTokens = false,
     this.verbose = false,
@@ -113,22 +113,22 @@ class FuzzyOptions<T> {
 
   /// Copy these options with some modifications.
   FuzzyOptions<T> copyWith({
-    int? location,
-    int? distance,
-    double? threshold,
-    int? maxPatternLength,
-    bool? isCaseSensitive,
-    Pattern? tokenSeparator,
-    bool? findAllMatches,
-    int? minTokenCharLength,
-    int? minMatchCharLength,
-    List<WeightedKey<T>>? keys,
-    bool? shouldSort,
-    SorterFn<T>? sortFn,
-    bool? tokenize,
-    bool? matchAllTokens,
-    bool? verbose,
-    bool? shouldNormalize,
+    int location,
+    int distance,
+    double threshold,
+    int maxPatternLength,
+    bool isCaseSensitive,
+    Pattern tokenSeparator,
+    bool findAllMatches,
+    int minTokenCharLength,
+    int minMatchCharLength,
+    List<WeightedKey<T>> keys,
+    bool shouldSort,
+    SorterFn<T> sortFn,
+    bool tokenize,
+    bool matchAllTokens,
+    bool verbose,
+    bool shouldNormalize,
   }) =>
       FuzzyOptions(
         location: location ?? this.location,

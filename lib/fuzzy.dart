@@ -18,19 +18,20 @@ export 'data/fuzzy_options.dart';
 class Fuzzy<T> {
   /// Instantiates it given a list of strings to look into, and options
   Fuzzy(
-    List<T>? list, {
-    FuzzyOptions<T>? options,
+    List<T> list, {
+    FuzzyOptions<T> options,
   })  : list = list ?? [],
         options = options ?? FuzzyOptions<T>();
 
   /// The original list of string
-  final List<T> list;
+  List<T> list;
 
   /// Fuzz search Options
   final FuzzyOptions<T> options;
 
   /// Search for a given [pattern] on the [list], optionally [limit]ing the result length
-  List<Result<T>> search(String pattern, [int limit = -1]) {
+  List<Result<T>> search(String pattern, [List<T> input, int limit = -1]) {
+    if (input != null) list = input;
     if (list.isEmpty) return <Result<T>>[];
 
     // Return original list as [List<Result>] if pattern is empty
@@ -138,11 +139,11 @@ class Fuzzy<T> {
 
   List<Result<T>> _analyze({
     String key = '',
-    required String value,
-    required T record,
-    required int index,
+    String value,
+    T record,
+    int index,
     List<Bitap> tokenSearchers = const [],
-    required Bitap fullSearcher,
+    Bitap fullSearcher,
     List<Result<T>> results = const [],
     Map<int, Result<T>> resultMap = const {},
   }) {

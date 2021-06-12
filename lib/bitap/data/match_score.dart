@@ -4,8 +4,8 @@ import 'match_index.dart';
 class MatchScore {
   /// Instantiates a match with score and matched locations
   MatchScore({
-    required this.score,
-    required this.isMatch,
+    this.score,
+    this.isMatch,
     this.matchedIndices = const [],
   });
 

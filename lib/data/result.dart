@@ -5,8 +5,8 @@ import '../bitap/data/match_index.dart';
 class Searchers {
   /// Instantiates it
   Searchers({
-    required this.tokenSearchers,
-    required this.fullSearcher,
+    this.tokenSearchers,
+    this.fullSearcher,
   });
 
   /// All searchers, if tokenized
@@ -24,8 +24,8 @@ class Searchers {
 class ResultsAndWeights<T> {
   /// Instantiates it
   ResultsAndWeights({
-    required this.results,
-    required this.weights,
+    this.results,
+    this.weights,
   });
 
   /// The list of results
@@ -39,7 +39,7 @@ class ResultsAndWeights<T> {
 class Result<T> {
   /// Instantiates it
   Result({
-    required this.item,
+    this.item,
     this.matches = const [],
     this.score = 0,
   });
@@ -62,10 +62,10 @@ class ResultDetails<T> {
   /// Instantiates it
   ResultDetails({
     this.key = '',
-    required this.arrayIndex,
-    required this.value,
-    required this.score,
-    required this.matchedIndices,
+    this.arrayIndex,
+    this.value,
+    this.score,
+    this.matchedIndices,
     this.nScore = 0,
   });
 

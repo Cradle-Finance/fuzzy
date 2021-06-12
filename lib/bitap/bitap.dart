@@ -17,7 +17,7 @@ import 'data/match_index.dart';
 /// work with bitwise operations, which are extremely fast.
 class Bitap {
   /// Instantiates a bitap, given options
-  Bitap(String pattern, {required FuzzyOptions options}) : options = options {
+  Bitap(String pattern, {FuzzyOptions options}) : options = options {
     this.pattern = options.isCaseSensitive ? pattern : pattern.toLowerCase();
     this.pattern =
         options.shouldNormalize ? latinize(this.pattern) : this.pattern;
@@ -30,7 +30,7 @@ class Bitap {
   final FuzzyOptions options;
 
   /// The pattern to search for
-  late String pattern;
+  String pattern;
 
   /// The laphabet derived from the pattern
   Map<String, int> patternAlphabet = {};
